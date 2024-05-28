@@ -91,9 +91,9 @@ export default function RootLayout({
                 >
                   {children}
                 </div>
-                <div className="fixed h-[182px] bottom-0 left-0 right-0 pt-8 grid items-end">
+                <div className="fixed bottom-0 left-0 right-0 grid items-end">
                   <div
-                    className="absolute inset-0 w-full h-full bg-white dark:bg-black"
+                    className="absolute w-full bg-white pointer-events-none dark:bg-black h-[600px]"
                     style={{
                       maskImage: `linear-gradient(to
 				bottom, transparent 0%,
