@@ -87,19 +87,7 @@ export default function RootLayout({
                   {children}
                 </div>
                 <div className="fixed bottom-0 left-0 right-0 grid items-end">
-                  <div
-                    className="absolute w-full bg-white pointer-events-none dark:bg-black h-[600px]"
-                    style={{
-                      maskImage: `linear-gradient(to
-				bottom, transparent 0%,
-				rgba(0, 0, 0, 0.4) 50%,
-				rgba(0, 0, 0, 0.8) 80%,
-				rgba(0, 0, 0, 0.9) 90%)`,
-                    }}
-                  ></div>
-                  <div className="px-6 pb-2">
-                    <Footer />
-                  </div>
+                  <Footer />
                 </div>
               </main>
               <CommandK />

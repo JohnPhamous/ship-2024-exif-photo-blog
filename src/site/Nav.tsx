@@ -72,7 +72,7 @@ export default function Nav({
                         )}
                       >
                         <svg
-                          height="18.5px"
+                          height="20px"
                           aria-label="Vercel Ship 2024"
                           fill="none"
                           viewBox="0 0 124 20"
