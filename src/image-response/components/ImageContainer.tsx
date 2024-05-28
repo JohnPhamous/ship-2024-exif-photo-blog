@@ -1,26 +1,28 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 
 export default function ImageContainer({
   width,
   height,
-  background = 'transparent',
+  background = "black",
   children,
 }: {
-  width: number
-  height: number
-  background?: 'transparent' | 'black'
-  children: ReactNode
+  width: number;
+  height: number;
+  background?: "transparent" | "black";
+  children: ReactNode;
 }) {
   return (
-    <div style={{
-      position: 'relative',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      background,
-      width,
-      height,
-    }}>
+    <div
+      style={{
+        position: "relative",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background,
+        width,
+        height,
+      }}
+    >
       {children}
     </div>
   );
