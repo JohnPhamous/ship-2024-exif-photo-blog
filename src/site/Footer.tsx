@@ -69,6 +69,16 @@ export default function Footer() {
                         <>{SHOW_REPO_LINK && <RepoLink />}</>
                       )}
                     </div>
+                    <div className="flex items-center h-10">
+                      <a
+                        href="https://vercel.com/templates/next.js/photo-blog?utm_source=vercel_site&utm_medium=web&utm_campaign=vercel_ship&utm_content=photo_blog_example"
+                        aria-label="Deploy Template"
+                        className="flex items-center px-3 text-white bg-[#171717] rounded dark:bg-[#EDEDED] dark:text-black hover:bg-[#383838] hover:text-white dark:hover:text-black dark:hover:bg-[#CCC] transition-colors h-[30px] my-[-5px] ml-2"
+                        target="_blank"
+                      >
+                        Deploy
+                      </a>
+                    </div>
                   </div>,
                 ]
               : []

@@ -21,14 +21,6 @@ export default function RepoLink() {
         />
         exif-photo-blog
       </Link>
-
-      <a
-        href="https://vercel.com/templates/next.js/photo-blog?utm_source=vercel_site&utm_medium=web&utm_campaign=vercel_ship&utm_content=photo_blog_example"
-        aria-label="Deploy Template"
-        className="flex items-center px-3 text-white bg-[#171717] rounded dark:bg-[#EDEDED] dark:text-black hover:bg-[#383838] hover:text-white dark:hover:text-black dark:hover:bg-[#CCC] transition-colors h-[30px] my-[-5px] ml-2"
-      >
-        Deploy
-      </a>
     </span>
   );
 }
