@@ -1,22 +1,25 @@
-import { format, parseISO, parse } from 'date-fns';
+import { format, parseISO, parse, add } from "date-fns";
+import { toZonedTime } from "date-fns-tz";
 
-const DATE_STRING_FORMAT_SHORT    = 'dd MMM yyyy';
-const DATE_STRING_FORMAT_MEDIUM   = 'dd MMM yy h:mma';
-const DATE_STRING_FORMAT          = 'dd MMM yyyy h:mma';
-const DATE_STRING_FORMAT_POSTGRES = 'yyyy-MM-dd HH:mm:ss';
+const DATE_STRING_FORMAT_SHORT = "dd MMM yyyy";
+const DATE_STRING_FORMAT_MEDIUM = "dd MMM yy h:mma";
+const DATE_STRING_FORMAT = "dd MMM yyyy h:mma";
+const DATE_STRING_FORMAT_POSTGRES = "yyyy-MM-dd HH:mm:ss";
+const timeZone = "America/New_York";
 
 type AmbiguousTimestamp = number | string;
 
-type Length = 'short' | 'medium' | 'long';
+type Length = "short" | "medium" | "long";
 
-export const formatDate = (date: Date, length: Length = 'long') => {
+export const formatDate = (date: Date, length: Length = "long") => {
+  const zonedDate = add(toZonedTime(date, timeZone), { hours: 18 });
   switch (length) {
-  case 'short':
-    return format(date, DATE_STRING_FORMAT_SHORT);
-  case 'medium':
-    return format(date, DATE_STRING_FORMAT_MEDIUM);
-  default:
-    return format(date, DATE_STRING_FORMAT);
+    case "short":
+      return format(zonedDate, DATE_STRING_FORMAT_SHORT);
+    case "medium":
+      return format(zonedDate, DATE_STRING_FORMAT_MEDIUM);
+    default:
+      return format(zonedDate, DATE_STRING_FORMAT);
   }
 };
 
@@ -24,15 +27,15 @@ export const formatDateFromPostgresString = (date: string, length?: Length) =>
   formatDate(parse(date, DATE_STRING_FORMAT_POSTGRES, new Date()), length);
 
 export const formatDateForPostgres = (date: Date) =>
-  date.toISOString().replace(
-    /(\d{4}):(\d{2}):(\d{2}) (\d{2}:\d{2}:\d{2})/,
-    '$1-$2-$3 $4',
-  );
+  date
+    .toISOString()
+    .replace(/(\d{4}):(\d{2}):(\d{2}) (\d{2}:\d{2}:\d{2})/, "$1-$2-$3 $4");
 
 const dateFromTimestamp = (timestamp?: AmbiguousTimestamp): Date => {
-  const date = typeof timestamp === 'number'
-    ? new Date(timestamp * 1000)
-    : typeof timestamp === 'string'
+  const date =
+    typeof timestamp === "number"
+      ? new Date(timestamp * 1000)
+      : typeof timestamp === "string"
       ? /.+Z/i.test(timestamp)
         ? new Date(timestamp)
         : new Date(`${timestamp}Z`)
@@ -42,7 +45,7 @@ const dateFromTimestamp = (timestamp?: AmbiguousTimestamp): Date => {
 
 const createNaiveDateWithOffset = (
   timestamp?: AmbiguousTimestamp,
-  offset = '+00:00',
+  offset = "+00:00"
 ) => {
   const date = dateFromTimestamp(timestamp);
   const dateString = `${date.toISOString()}`.replace(/\.[\d]+Z/, offset);
@@ -53,18 +56,15 @@ const createNaiveDateWithOffset = (
 
 export const convertTimestampWithOffsetToPostgresString = (
   timestamp?: AmbiguousTimestamp,
-  offset?: string,
-) =>
-  formatDateForPostgres(createNaiveDateWithOffset(timestamp, offset));
+  offset?: string
+) => formatDateForPostgres(createNaiveDateWithOffset(timestamp, offset));
 
 export const convertTimestampToNaivePostgresString = (
-  timestamp?: AmbiguousTimestamp,
+  timestamp?: AmbiguousTimestamp
 ) =>
   dateFromTimestamp(timestamp)
-    .toISOString().replace(
-      /(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2})(.[\d]+Z)*/,
-      '$1 $2',
-    );
+    .toISOString()
+    .replace(/(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2})(.[\d]+Z)*/, "$1 $2");
 
 // Run in browser to generate local date time strings
 

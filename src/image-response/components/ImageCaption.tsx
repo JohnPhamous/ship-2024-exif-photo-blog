@@ -8,12 +8,14 @@ export default function ImageCaption({
   fontFamily,
   icon,
   children,
+  topOverride = false,
 }: {
   width: number;
   height: number;
   fontFamily: string;
   icon?: ReactNode;
   children: ReactNode;
+  topOverride?: boolean;
 }) {
   const paddingEdge = height * 0.07;
   const paddingContent = height * 0.6;
@@ -32,7 +34,7 @@ export default function ImageCaption({
         lineHeight: 1,
         left: 0,
         right: 0,
-        ...(OG_TEXT_BOTTOM_ALIGNMENT
+        ...(OG_TEXT_BOTTOM_ALIGNMENT && !topOverride
           ? {
               paddingTop: paddingContent,
               paddingBottom: paddingEdge,

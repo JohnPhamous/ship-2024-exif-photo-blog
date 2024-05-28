@@ -84,7 +84,7 @@ export default function Nav({
                           ></path>
                           <rect
                             fill="currentColor"
-                            fill-opacity="0.08"
+                            fillOpacity="0.08"
                             height="14.25"
                             rx="2.4375"
                             width="14.25"
@@ -95,7 +95,7 @@ export default function Nav({
                             height="14.25"
                             rx="2.4375"
                             stroke="url(#paint0_linear_3358_1727)"
-                            stroke-width="0.75"
+                            strokeWidth="0.75"
                             width="14.25"
                             x="109.188"
                             y="1.375"
@@ -114,10 +114,10 @@ export default function Nav({
                               y2="16"
                             >
                               <stop
-                                stop-color="currentColor"
-                                stop-opacity="0.8"
+                                stopColor="currentColor"
+                                stopOpacity="0.8"
                               ></stop>
-                              <stop offset="1" stop-color="currentColor"></stop>
+                              <stop offset="1" stopColor="currentColor"></stop>
                             </linearGradient>
                             <linearGradient
                               gradientUnits="userSpaceOnUse"
@@ -128,10 +128,10 @@ export default function Nav({
                               y2="11.4173"
                             >
                               <stop
-                                stop-color="currentColor"
-                                stop-opacity="0.8"
+                                stopColor="currentColor"
+                                stopOpacity="0.8"
                               ></stop>
-                              <stop offset="1" stop-color="currentColor"></stop>
+                              <stop offset="1" stopColor="currentColor"></stop>
                             </linearGradient>
                           </defs>
                         </svg>
