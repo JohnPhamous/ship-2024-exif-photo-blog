@@ -30,7 +30,7 @@ export default function Footer() {
   return (
     <div className="fixed bottom-0 left-0 right-0 grid items-end">
       <motion.div
-        className="absolute w-full bg-white pointer-events-none dark:bg-black h-[600px]"
+        className="absolute w-full bg-white pointer-events-none dark:bg-black h-[300px]"
         style={{
           maskImage: `linear-gradient(to
 				bottom, transparent 0%,
