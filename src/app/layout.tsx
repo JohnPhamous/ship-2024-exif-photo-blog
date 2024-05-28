@@ -1,7 +1,6 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { clsx } from "clsx/lite";
-import { IBM_Plex_Mono } from "next/font/google";
 import {
   BASE_URL,
   SITE_DESCRIPTION,
@@ -17,15 +16,10 @@ import Nav from "@/site/Nav";
 import Footer from "@/site/Footer";
 import CommandK from "@/site/CommandK";
 import SwrConfigClient from "../state/SwrConfigClient";
+import { GeistMono } from "geist/font/mono";
 
 import "../site/globals.css";
 import "../site/sonner.css";
-
-const ibmPlexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-ibm-plex-mono",
-});
 
 export const metadata: Metadata = {
   title: SITE_TITLE,
@@ -79,8 +73,9 @@ export default function RootLayout({
       lang="en"
       // Suppress hydration errors due to next-themes behavior
       suppressHydrationWarning
+      className={GeistMono.variable}
     >
-      <body className={ibmPlexMono.variable}>
+      <body>
         <AppStateProvider>
           <SwrConfigClient>
             <ThemeProvider attribute="class" forcedTheme="dark">
