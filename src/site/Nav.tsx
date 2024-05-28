@@ -114,13 +114,10 @@ export default function Nav({
                               y2="16"
                             >
                               <stop
-                                stop-color="var(--ds-gray-1000)"
+                                stop-color="currentColor"
                                 stop-opacity="0.8"
                               ></stop>
-                              <stop
-                                offset="1"
-                                stop-color="var(--ds-gray-1000)"
-                              ></stop>
+                              <stop offset="1" stop-color="currentColor"></stop>
                             </linearGradient>
                             <linearGradient
                               gradientUnits="userSpaceOnUse"
@@ -131,13 +128,10 @@ export default function Nav({
                               y2="11.4173"
                             >
                               <stop
-                                stop-color="var(--ds-gray-1000)"
+                                stop-color="currentColor"
                                 stop-opacity="0.8"
                               ></stop>
-                              <stop
-                                offset="1"
-                                stop-color="var(--ds-gray-1000)"
-                              ></stop>
+                              <stop offset="1" stop-color="currentColor"></stop>
                             </linearGradient>
                           </defs>
                         </svg>
