@@ -69,9 +69,6 @@ export default function Footer() {
                         <>{SHOW_REPO_LINK && <RepoLink />}</>
                       )}
                     </div>
-                    <div className="flex items-center h-10">
-                      <ThemeSwitcher />
-                    </div>
                   </div>,
                 ]
               : []
