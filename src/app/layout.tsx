@@ -95,8 +95,11 @@ export default function RootLayout({
                   <div
                     className="absolute inset-0 w-full h-full bg-white dark:bg-black"
                     style={{
-                      maskImage:
-                        "linear-gradient(to bottom, transparent 0%, #000000 80%)",
+                      maskImage: `linear-gradient(to
+				bottom, transparent 0%,
+				rgba(0, 0, 0, 0.4) 50%,
+				rgba(0, 0, 0, 0.8) 80%,
+				rgba(0, 0, 0, 0.9) 90%)`,
                     }}
                   ></div>
                   <div className="px-6 pb-2">
