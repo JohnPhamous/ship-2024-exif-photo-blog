@@ -1,5 +1,5 @@
 import { format, parseISO, parse, add } from "date-fns";
-import { toZonedTime } from "date-fns-tz";
+import { formatInTimeZone, toZonedTime } from "date-fns-tz";
 
 const DATE_STRING_FORMAT_SHORT = "dd MMM yyyy";
 const DATE_STRING_FORMAT_MEDIUM = "dd MMM yy h:mma";
@@ -12,14 +12,21 @@ type AmbiguousTimestamp = number | string;
 type Length = "short" | "medium" | "long";
 
 export const formatDate = (date: Date, length: Length = "long") => {
-  const zonedDate = add(toZonedTime(date, timeZone), { hours: 18 });
   switch (length) {
     case "short":
-      return format(zonedDate, DATE_STRING_FORMAT_SHORT);
+      return formatInTimeZone(
+        date,
+        "America/New_York",
+        DATE_STRING_FORMAT_SHORT
+      );
     case "medium":
-      return format(zonedDate, DATE_STRING_FORMAT_MEDIUM);
+      return formatInTimeZone(
+        date,
+        "America/New_York",
+        DATE_STRING_FORMAT_MEDIUM
+      );
     default:
-      return format(zonedDate, DATE_STRING_FORMAT);
+      return formatInTimeZone(date, "America/New_York", DATE_STRING_FORMAT);
   }
 };
 

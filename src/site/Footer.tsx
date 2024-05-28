@@ -40,7 +40,7 @@ export default function Footer() {
           maskRepeat: "no-repeat",
         }}
         animate={{
-          maskPosition: `center ${isBottom ? "600px" : "0px"}`,
+          maskPosition: `center ${isBottom ? "300px" : "0px"}`,
         }}
       ></motion.div>
       <div className="px-6 pb-2">

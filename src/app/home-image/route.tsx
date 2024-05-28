@@ -68,7 +68,6 @@ export async function GET() {
       } as unknown as Photo)
   );
 
-  console.log(photos);
   const { width, height } = IMAGE_OG_DIMENSION_SMALL;
 
   // Make sure next/image can be reached from absolute urls,

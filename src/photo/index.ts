@@ -12,6 +12,7 @@ import {
 } from "@/utility/exif";
 import camelcaseKeys from "camelcase-keys";
 import { add, format, isBefore } from "date-fns";
+import { formatInTimeZone } from "date-fns-tz";
 import type { Metadata } from "next";
 
 // INFINITE SCROLL: LARGE PHOTOS
@@ -188,13 +189,21 @@ export const translatePhotoId = (id: string) =>
 export const titleForPhoto = (photo: Photo) => {
   // @ts-expect-error
   if (photo.createdAt?.getTime) {
-    return formatUTCTime(photo.takenAt);
+    if (photo?.make === "FUJIFILM") {
+      return formatInTimeZone(photo.takenAt, "America/New_York", "HH:mm:ss");
+    } else {
+      return formatUTCTime(photo.takenAt);
+    }
   }
   return photo.title || "Untitled";
 };
 
 function formatUTCTime(date: Date): string {
-  return format(add(date, { hours: 21 }), "HH:mm:ss");
+  return formatInTimeZone(
+    add(date, { hours: 18 }),
+    "America/New_York",
+    "HH:mm:ss"
+  );
 }
 
 export const altTextForPhoto = (photo: Photo) =>
