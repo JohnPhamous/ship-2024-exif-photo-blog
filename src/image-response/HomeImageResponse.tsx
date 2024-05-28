@@ -25,7 +25,7 @@ export default function HomeImageResponse({
           height,
         }}
       />
-      <ImageCaption {...{ width, height, fontFamily }}>
+      <ImageCaption {...{ width, height, fontFamily }} topOverride>
         <svg
           height="64px"
           aria-label="Vercel Ship 2024"

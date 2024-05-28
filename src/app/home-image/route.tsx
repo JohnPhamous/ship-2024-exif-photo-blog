@@ -20,13 +20,13 @@ export async function GET() {
   // 12 images for the grid
   const images = [
     "Cn7St5gMsf47hIRd",
-    "blgsETPrlqmYyXTN",
-    "gM9ERTAPLqp6zV4H",
     "wJ74tNzMTyfIfloI",
-    "jpnv0salRyFJpm1p",
-    "TQNbkiSLXEnEMSTh",
-    "5uZjytncjTY8L2DP",
+    "gM9ERTAPLqp6zV4H",
     "63SMJltT5z5BVDCA",
+    "jpnv0salRyFJpm1p",
+    "J3F5R7jngKHCYPVM",
+    "5uZjytncjTY8L2DP",
+    "blgsETPrlqmYyXTN",
     "msbtaUqHzFowsivg",
     "sFWodKwS6awGvVxj",
     "5NVfMUpJ9WKdTTAQ",
